@@ -4,6 +4,8 @@
 
 #include "plugin.h"
 
+#include <gvagate/libllxgvagate.hpp>
+
 #include <QQmlEngine>
 #include <QAbstractItemModel>
 #include <QMimeData>
@@ -14,13 +16,26 @@
 
 using namespace std;
 
+Gate::Gate()
+{
+
+}
+
+QList<User> Gate::getUsers()
+{
+    QList<User> tmp;
+
+    return tmp;
+}
+
 BasePlugin::BasePlugin(QObject* parent) : QQmlExtensionPlugin(parent)
 {
 }
 
 void BasePlugin::registerTypes(const char* uri)
 {
-    //qmlRegisterType<Gate> (uri, 1, 0, "Gate");
+    qmlRegisterType<User> (uri, 1, 0, "User");
+    qmlRegisterType<Gate> (uri, 1, 0, "Gate");
     qmlRegisterAnonymousType<QMimeData>(uri, 1);
     
 }

@@ -14,6 +14,30 @@
 #include <QVariant>
 #include <QJSValue>
 
+class User : public QObject
+{
+    Q_OBJECT
+    Q_PROPERTY(QString name MEMBER m_name)
+    Q_PROPERTY(int uid MEMBER m_uid)
+
+    protected:
+
+    QString m_name;
+    int m_uid;
+};
+
+class Gate : public QObject
+{
+    Q_OBJECT
+
+public:
+    Gate();
+
+    Q_INVOKABLE QList<User> getUsers();
+
+private:
+
+};
 
 class BasePlugin : public QQmlExtensionPlugin
 {
